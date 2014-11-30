@@ -1,39 +1,14 @@
 <?php
-/*
-* 2007-2014 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Open Software License (OSL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/osl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2014 PrestaShop SA
-*  @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
-
 /* Debug only */
-if (!defined('_PS_MODE_DEV_'))
-	define('_PS_MODE_DEV_', true);
+if (!defined('_PS_MODE_DEV_')) //按照惯例，表示私有常量
+	define('_PS_MODE_DEV_', true);//调试之用
 /* Compatibility warning */
 define('_PS_DISPLAY_COMPATIBILITY_WARNING_', true);
 if (_PS_MODE_DEV_ === true)
 {
-	@ini_set('display_errors', 'on');
+	@ini_set('display_errors', 'on');//使用php函数来改变php的配置
 	@error_reporting(E_ALL | E_STRICT);
-	define('_PS_DEBUG_SQL_', true);
+	define('_PS_DEBUG_SQL_', true);//显示sql
 }
 else
 {
@@ -60,7 +35,7 @@ if (!defined('_PS_HOST_MODE_') && (getenv('_PS_HOST_MODE_') || getenv('REDIRECT_
 
 if (!defined('_PS_ROOT_DIR_') && (getenv('_PS_ROOT_DIR_') || getenv('REDIRECT__PS_ROOT_DIR_')))
 	define('_PS_ROOT_DIR_', getenv('_PS_ROOT_DIR_') ? getenv('_PS_ROOT_DIR_') : getenv('REDIRECT__PS_ROOT_DIR_'));
-
+//getenv函数是获得系统信息的通道
 /* Directories */
 if (!defined('_PS_ROOT_DIR_'))
 	define('_PS_ROOT_DIR_', realpath($currentDir.'/..'));
@@ -196,3 +171,4 @@ define('_PS_SMARTY_CONSOLE_OPEN_', 2);
 
 define('_PS_JQUERY_VERSION_', '1.11.0');
 
+//使用常量定义相关参数，譬如各个方面的路径，位置。
